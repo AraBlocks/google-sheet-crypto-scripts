@@ -1,7 +1,7 @@
 # google-sheet-crypto-scripts
 Collection of NFT and Crypto scripts for Google Sheets. This includes getting current prices, floor prices of NFTs, and more in the future.
 
-Here is a link to the Google Sheet which is open to all. This was born from Rad acquiring NFTs from partner projects like DeadHeads, Claylings, Knights of Degen, Fluf World (with Burrows and Party Bears), Jenkins the Valet, and more.
+Here is a link to the Google Sheet which is open to all. This was born from Rad (https://rad.live - https://ara.one) acquiring NFTs from partner projects like DeadHeads, Claylings, Knights of Degen, Fluf World (with Burrows and Party Bears), Jenkins the Valet, and more.
 
 https://docs.google.com/spreadsheets/d/1T_zWUGuKtOlY2sSssV-mg5x72UA6HsZWJZO7GwqS5Gk/edit?usp=sharing
 
