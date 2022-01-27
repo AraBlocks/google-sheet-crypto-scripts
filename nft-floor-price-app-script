@@ -1,0 +1,49 @@
+/**
+ * Retrieves floor prices from OpenSea for a given collection slug.
+ * 
+ * This is provided with absolutely zero warranty and is free to use
+ * whereever and however you see fit. If you see issues with it, fix them
+ * and contribute back to the code. Enjoy.
+ * 
+ * Author: John Anthony Mugavero, 01/27/2022
+ */
+function updateFloors()
+{
+  //Loop through the rows and get the slugs.
+  var sheet = SpreadsheetApp.getActive().getSheetByName("RadNFTs");
+  var data = sheet.getDataRange().getValues();
+  var i = 1;
+  data.forEach(function (row) {
+    
+    //Skip the header row. Crude but whatever.
+    if (i===1){
+      i++;
+    }
+    else{
+      var url = 'https://api.opensea.io/api/v1/collection/'+row[1]+'/stats?format=json';
+      var response = UrlFetchApp.fetch(url);
+      var json = JSON.parse(response.getContentText());
+      sheet.getRange(i, 11).setValue(json.stats.floor_price);
+      i++;
+    }
+
+  });
+  
+}
+
+/**
+ * Adds a custom menu to the active spreadsheet, containing a single menu item
+ * for invoking the function specified above.
+ * The onOpen() function, when defined, is automatically invoked whenever the
+ * spreadsheet is opened.
+ * For more information on using the Spreadsheet API, see
+ * https://developers.google.com/apps-script/service_spreadsheet
+ */
+function onOpen() {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet();
+  var entries = [{
+    name : "Update Floor Price",
+    functionName : "updateFloors"
+  }];
+  sheet.addMenu("Scripts", entries);
+};
